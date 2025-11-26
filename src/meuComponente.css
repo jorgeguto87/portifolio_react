@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&family=Krona+One&family=League+Spartan:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Truculenta:opsz,wght@12..72,100..900&display=swap');
+
 :root{
     --fonte-principal: "Bebas Neue", sans-serif;
     --fonte-secundaria: "Open Sans", sans-serif;
@@ -62,7 +63,6 @@ header{
    animation: show 0.5s forwards, pop-word 2.5s forwards;
   animation-timing-function: cubic-bezier(0.14, 1.23, 0.33, 1.16);
   opacity: 0;
-
   transform: rotateX(120deg);
   transform-origin: 50% 100%;
   animation-delay: 2s;
@@ -93,12 +93,12 @@ header{
 
 .imagem__fundo{
     position: fixed;
-  width: 100%;
-  height: auto;
-  right: 0;
-  top: 0;
-  border-radius: 3px;
-  overflow: hidden;
+    width: 100%;
+    height: auto;
+    right: 0;
+    top: 0;
+    border-radius: 3px;
+    overflow: hidden;
 }
 
 @keyframes animacaoCapa{
@@ -145,7 +145,6 @@ header{
 
 .texto__principal__paragrafo strong{
     font-size: 110%;
-    
 }
 
 @keyframes animacaoTextoPrincipal{
@@ -155,27 +154,21 @@ header{
 
 /*====[RESPONSIVIDADE]====*/
 
-
-
-
 /*====[ORIENTAÇÃO LANDSCAPE]====*/
 
 @media screen and (max-width: 1368px) and (orientation: landscape) {
-    
     .texto__principal__subtitulo{
         font-size: 140%;
     }
 }
 
 @media screen and (max-width: 1280px){ 
-    
     .imagem__capa{
         max-height: 70%;
         right: 5%;
     }
     
     .texto__principal{
-
         left: 5%;
         top: 30%;
         max-width: 50%;
@@ -196,12 +189,9 @@ header{
     .texto__principal__paragrafo strong{
         font-size: 100%;
     }
-
-    
 }
 
 @media screen and (max-width: 934px) and (orientation: landscape){
-    
     .menu__cabecalho a{
         font-size: 120%;
     }
@@ -233,7 +223,6 @@ header{
 }
 
 @media screen and (max-width: 740px) and (orientation: landscape){
-    
     .menu__cabecalho a{
         font-size: 100%;
     }
@@ -257,52 +246,12 @@ header{
     .texto__principal__paragrafo strong{
         font-size: 90%;
     }
-
 }
 
 /*====[ORIENTAÇÃO PORTRAIT]====*/
 
-
-
-@media screen and (max-width: 912px) and (min-width: 853px) and (orientation: portrait) {
-    
-    .imagem__capa{
-        max-height: 70%;
-        right: 30%;
-        left: 30%;
-    }
-
-    .texto__principal{
-        left: 15%;
-        right: 15%;
-        top: 20%;
-        max-width: 80%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: justify;
-    }
-    
-    .texto__principal__titulo{
-        font-size: 282%;
-    }
-
-    .texto__principal__subtitulo{
-        font-size: 150%;
-    }
-
-    .texto__principal__paragrafo{
-        font-size: 150%;
-    }
-
-    .texto__principal__paragrafo strong{
-        font-size: 100%;
-    }
-}
-
-@media screen and (max-width: 1024px) and (orientation: portrait) {
-    
+/* Tablets grandes - iPad Pro e similares */
+@media screen and (min-width: 1024px) and (orientation: portrait) {
     .imagem__capa{
         max-height: 70%;
         right: 30%;
@@ -338,15 +287,48 @@ header{
     }
 }
 
+/* Tablets médios */
+@media screen and (min-width: 853px) and (max-width: 1023px) and (orientation: portrait) {
+    .imagem__capa{
+        max-height: 70%;
+        right: 30%;
+        left: 30%;
+    }
 
-@media screen and (max-width: 820px) and (min-width: 768px) and (orientation: portrait) {
+    .texto__principal{
+        left: 15%;
+        right: 15%;
+        top: 20%;
+        max-width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+    }
     
-    
+    .texto__principal__titulo{
+        font-size: 282%;
+    }
 
+    .texto__principal__subtitulo{
+        font-size: 150%;
+    }
+
+    .texto__principal__paragrafo{
+        font-size: 150%;
+    }
+
+    .texto__principal__paragrafo strong{
+        font-size: 100%;
+    }
+}
+
+/* Tablets pequenos */
+@media screen and (min-width: 768px) and (max-width: 852px) and (orientation: portrait) {
     header{
         flex-direction: column;
         justify-content: center;
-        
     }
 
     .menu__cabecalho{
@@ -370,7 +352,7 @@ header{
     }
 
     .texto__principal{
-        bottom: -23%;
+        top: 60%;
         max-width: 80%;
         left: 10%;
         right: 10%;
@@ -398,14 +380,12 @@ header{
     }
 }
 
-/*====[DUAS TELAS]====*/
+/*====[DUAS TELAS - Surface Duo]====*/
 
 @media (horizontal-viewport-segments: 2) and (orientation: landscape) {
-
    .menu__cabecalho{
     position: relative;
     left: -2%;
-    
    }
 
    .texto__principal{
@@ -424,17 +404,131 @@ header{
    }
 }
 
+/* Fallback para Surface Duo e outros dispositivos dobráveis em portrait */
+@media (max-aspect-ratio: 1/1) and (min-width: 540px) and (max-width: 767px) {
+    header{
+        flex-direction: column;
+        justify-content: center;
+    }
 
+    .menu__cabecalho{
+        position: relative;
+    }
+
+    .titulo__cabecalho{
+        position: relative;
+        margin-left: 5%;
+    }
+
+    .imagem__capa{
+        max-height: 40%;
+        right: 30%;
+        left: 30%;
+        top: 5%;
+    }
+
+    .imagem__fundo{
+        top: 0%;
+    }
+
+    .texto__principal{
+        top: 50%;
+        max-width: 80%;
+        left: 10%;
+        right: 10%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: justify;
+    }
+    
+    .texto__principal__titulo{
+        font-size: 200%;
+    }
+
+    .texto__principal__subtitulo{
+        font-size: 110%;
+    }
+
+    .texto__principal__paragrafo{
+        font-size: 100%;
+    }
+
+    .texto__principal__paragrafo strong{
+        font-size: 100%;
+    }
+}
 
 /*====[CELULAR PORTRAIT]====*/
 
-@media screen and (max-width: 400px) and (min-width: 320px) and (orientation: portrait) {
+/* Celulares médios/grandes (412px-540px) */
+@media screen and (min-width: 412px) and (max-width: 540px) and (orientation: portrait) {
     header{
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+
+    .menu__cabecalho{
+        position: relative;
+    }
+
+    .menu__cabecalho a{
+        font-size: 110%;
+    }
+
+    .titulo__cabecalho{
+        position: relative;
+        font-size: 125%;
+    }
+
+    .imagem__capa{
+        max-height: 40%;
+        right: 25%;
+        left: 25%;
+        top: 8%;
+    }
+
+    .imagem__fundo{
+        top: 0%;
+    }
+
+    .texto__principal{
+        top: 55%;
+        max-width: 85%;
+        left: 7.5%;
+        right: 7.5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: justify;
+    }
+    
+    .texto__principal__titulo{
+        font-size: 155%;
+    }
+
+    .texto__principal__subtitulo{
+        font-size: 90%;
+    }
+
+    .texto__principal__paragrafo{
+        font-size: 85%;
+    }
+
+    .texto__principal__paragrafo strong{
+        font-size: 100%;
+    }
+}
+
+/* Celulares pequenos (320px-411px) */
+@media screen and (max-width: 411px) and (orientation: portrait) {
+    header{
+        flex-direction: column;
         justify-content: center;
-        
+        align-items: center;
     }
 
     .menu__cabecalho{
@@ -447,7 +541,6 @@ header{
 
     .titulo__cabecalho{
         position: relative;
-        
         font-size: 120%;
     }
 
@@ -463,14 +556,14 @@ header{
     }
 
     .texto__principal{
-        bottom: -23%;
-        max-width: 80%;
-        left: 10%;
-        right: 10%;
+        top: 52%;
+        max-width: 85%;
+        left: 7.5%;
+        right: 7.5%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         text-align: justify;
     }
     
@@ -479,78 +572,14 @@ header{
     }
 
     .texto__principal__subtitulo{
-        font-size: 75%;
-    }
-
-    .texto__principal__paragrafo{
-        font-size: 65%;
-    }
-
-    .texto__principal__paragrafo strong{
-        font-size: 100%;
-    }
-    }
-
-    @media screen and (max-width: 430px) and (min-width: 412px) and (orientation: portrait) {
-    header{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        justify-content: center;
-        
-    }
-
-    .menu__cabecalho{
-        position: relative;
-    }
-
-    .menu__cabecalho a{
-        font-size: 110%;
-    }
-
-    .titulo__cabecalho{
-        position: relative;
-        
-        font-size: 125%;
-    }
-
-    .imagem__capa{
-        max-height: 40%;
-        right: 21%;
-        left: 21%;
-        top: 5%;
-    }
-
-    .imagem__fundo{
-        top: 0%;
-    }
-
-    .texto__principal{
-        bottom: -23%;
-        max-width: 80%;
-        left: 10%;
-        right: 10%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: justify;
-    }
-    
-    .texto__principal__titulo{
-        font-size: 155%;
-    }
-
-    .texto__principal__subtitulo{
         font-size: 80%;
     }
 
     .texto__principal__paragrafo{
-        font-size: 75%;
+        font-size: 70%;
     }
 
     .texto__principal__paragrafo strong{
         font-size: 100%;
     }
-    }
-
+}
