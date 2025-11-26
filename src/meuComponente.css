@@ -155,60 +155,7 @@ header{
 
 /*====[RESPONSIVIDADE]====*/
 
-@media (max-aspect-ratio: 1/1) and (min-width: 540px) {
-    header{
-        flex-direction: column;
-        justify-content: center;
-    }
 
-    .menu__cabecalho{
-        position: relative;
-    }
-
-    .titulo__cabecalho{
-        position: relative;
-        margin-left: 5%;
-    }
-
-    .imagem__capa{
-        max-height: 40%;
-        right: 30%;
-        left: 30%;
-        top: 5%;
-    }
-
-    .imagem__fundo{
-        top: 0%;
-    }
-
-    .texto__principal{
-        bottom: -23%;
-        max-width: 80%;
-        left: 10%;
-        right: 10%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: justify;
-    }
-    
-    .texto__principal__titulo{
-        font-size: 250%;
-    }
-
-    .texto__principal__subtitulo{
-        font-size: 130%;
-    }
-
-    .texto__principal__paragrafo{
-        font-size: 120%;
-    }
-
-    .texto__principal__paragrafo strong{
-        font-size: 100%;
-    }
-}
 
 
 /*====[ORIENTAÇÃO LANDSCAPE]====*/
