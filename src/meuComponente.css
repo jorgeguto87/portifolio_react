@@ -190,7 +190,7 @@ header{
 
     .texto__principal {
         left: 3rem;
-        top: 7rem;
+        top: 5rem;
         max-width: 500px;
     }
 
@@ -323,7 +323,7 @@ header{
     .imagem__capa {
         position: relative;
         right: auto;
-        max-height: 380px;
+        max-height: 360px;
         margin: 0 auto;
         display: block;
         top: 0;
