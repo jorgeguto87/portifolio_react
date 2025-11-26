@@ -487,10 +487,9 @@ header{
 
     .imagem__capa{
         max-height: 38%;
+        right: 25%;
+        left: 25%;
         top: 10%;
-        left: 50%;
-        right: auto;
-        transform: translateX(-50%);
     }
 
     .imagem__fundo{
