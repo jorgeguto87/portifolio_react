@@ -479,13 +479,14 @@ header{
 
 /*====[CELULAR PORTRAIT]====*/
 
-@media screen and (max-width: 400px) and (min-width: 320px) and (orientation: portrait) {
+/*====[CELULAR PORTRAIT]====*/
+
+/* Celulares até 767px - cobre TODOS os celulares incluindo Moto E7 */
+@media screen and (max-width: 767px) and (orientation: portrait) {
     header{
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        justify-content: center;
-        
     }
 
     .menu__cabecalho{
@@ -498,15 +499,14 @@ header{
 
     .titulo__cabecalho{
         position: relative;
-        
         font-size: 120%;
     }
 
     .imagem__capa{
-        max-height: 35%;
-        right: 28%;
-        left: 28%;
-        top: 10%;
+        max-height: 38%;
+        right: 25%;
+        left: 25%;
+        top: 12%;
     }
 
     .imagem__fundo{
@@ -514,19 +514,38 @@ header{
     }
 
     .texto__principal{
-        bottom: -23%;
-        max-width: 80%;
-        left: 10%;
-        right: 10%;
+        top: 55%;
+        max-width: 85%;
+        left: 7.5%;
+        right: 7.5%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
         text-align: justify;
     }
     
     .texto__principal__titulo{
-        font-size: 130%;
+        font-size: 140%;
+    }
+
+    .texto__principal__subtitulo{
+        font-size: 85%;
+    }
+
+    .texto__principal__paragrafo{
+        font-size: 75%;
+    }
+
+    .texto__principal__paragrafo strong{
+        font-size: 100%;
+    }
+}
+
+/* Celulares muito pequenos - ajuste fino */
+@media screen and (max-width: 360px) and (orientation: portrait) {
+    .texto__principal__titulo{
+        font-size: 120%;
     }
 
     .texto__principal__subtitulo{
@@ -536,72 +555,4 @@ header{
     .texto__principal__paragrafo{
         font-size: 65%;
     }
-
-    .texto__principal__paragrafo strong{
-        font-size: 100%;
-    }
-    }
-
-    @media screen and (max-width: 430px) and (min-width: 412px) and (orientation: portrait) {
-    header{
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        justify-content: center;
-        
-    }
-
-    .menu__cabecalho{
-        position: relative;
-    }
-
-    .menu__cabecalho a{
-        font-size: 110%;
-    }
-
-    .titulo__cabecalho{
-        position: relative;
-        
-        font-size: 125%;
-    }
-
-    .imagem__capa{
-        max-height: 40%;
-        right: 21%;
-        left: 21%;
-        top: 5%;
-    }
-
-    .imagem__fundo{
-        top: 0%;
-    }
-
-    .texto__principal{
-        bottom: -23%;
-        max-width: 80%;
-        left: 10%;
-        right: 10%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: justify;
-    }
-    
-    .texto__principal__titulo{
-        font-size: 155%;
-    }
-
-    .texto__principal__subtitulo{
-        font-size: 80%;
-    }
-
-    .texto__principal__paragrafo{
-        font-size: 75%;
-    }
-
-    .texto__principal__paragrafo strong{
-        font-size: 100%;
-    }
-    }
-
+}
