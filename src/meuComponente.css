@@ -259,7 +259,7 @@ header{
 
 /*====[ORIENTAÇÃO PORTRAIT]====*/
 
-@media (max-aspect-ratio: 1/1) and (min-width: 540px) {
+/*@media (max-aspect-ratio: 1/1) and (min-width: 540px) {
     header{
         flex-direction: column;
         justify-content: center;
@@ -313,7 +313,7 @@ header{
         font-size: 100%;
     }
 }
-
+*/
 
 @media screen and (max-width: 912px) and (min-width: 853px) and (orientation: portrait) {
     
