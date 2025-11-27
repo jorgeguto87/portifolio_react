@@ -5,6 +5,24 @@
     --fonte-secundaria: "Open Sans", sans-serif;
     --fonte-titulo: "Audiowide", sans-serif;
     --fonte-tercearia: "Montserrat", sans-serif;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: optimizeQuality;
+    max-width: 100%;
+    height: auto;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+svg {
+    shape-rendering: geometricPrecision;
 }
 
 *{
