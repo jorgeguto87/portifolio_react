@@ -504,6 +504,7 @@ header{
     }
 
     .imagem__capa{
+        position: absolute;
         max-height: 38%;
         right: 25%;
         left: 25%;
