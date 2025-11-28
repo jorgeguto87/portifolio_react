@@ -2,7 +2,7 @@ import React from 'react'
 import devjorge from './assets/devjorge.png'
 import java from './assets/java.svg'
 
-const titulo = '<Dev Jorge />';
+const titulo = '<Dev Augusto />';
 const imagemCapa = <img className='imagem__capa' src={devjorge} alt='Dev Jorge' />;
 const imagemFundo = <img className='imagem__fundo' src={java} alt='fundo_Java' />;
 const textoPrincipal = (
