@@ -1242,4 +1242,67 @@ width: 100%;
     .texto__principal__paragrafo{
         font-size: 65%;
     }
+
+    .pagina__inicial{
+        flex-direction: column;
+        padding-top: 6rem;
+        max-height: 620px;
+        width: 100%;
+        padding-bottom: 1.5rem;                
+    }
+
+    .carrocel {
+      height: 680px;
+      max-width: 100%;
+      margin: 0 auto;      
+    }
+
+    .carrocel__botao__next,
+    .carrocel__botao__prev {
+      /*display: none;*/
+      height: 2rem;
+      width: 2rem;
+      font-size: 1rem;
+    }
+
+    .carrocel__slide {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      
+    }
+
+    .carrocel__slide__conteudo {      
+      padding: 1rem;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .carrocel__slide__conteudo__titulo {
+      font-size: 1.7rem;
+    }
+
+    .carrocel__slide__conteudo__subtitulo {
+      font-size: 0.8rem;
+    }
+
+    .carrocel__slide__conteudo__descricao {
+      font-size: 0.7rem;
+      
+    }
+
+    .carrocel__slide__imagem{
+      display: flex;
+      width: 50%;
+    }
+
+    .secao__diferenciais__container{
+      max-height: auto;
+      width: auto;
+      
+    }
 }

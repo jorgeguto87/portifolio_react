@@ -56,6 +56,8 @@ const secaoDiferenciais = (
 function CarrocelSolucoes () {
   const [slideIndex, setSlideIndex] = useState(0);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
   const carrocelRef = useRef(null);
   const slidesContainerRef = useRef(null);
   
@@ -117,7 +119,62 @@ function CarrocelSolucoes () {
     }
   };
 
-  // Função para verificar se o scroll está no topo da seção do carrossel
+  // Função para lidar com o início do toque
+  const handleTouchStart = (e) => {
+    setTouchStart(e.touches[0].clientY);
+  };
+
+  // Função para lidar com o movimento do toque
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.touches[0].clientY);
+  };
+
+  // Função para lidar com o fim do toque
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50; // Distância mínima para considerar um swipe
+    
+    if (Math.abs(distance) < minSwipeDistance) {
+      setTouchStart(0);
+      setTouchEnd(0);
+      return;
+    }
+    
+    if (isScrolling) return;
+    
+    setIsScrolling(true);
+    
+    if (distance > 0) {
+      // Swipe para cima -> próximo slide
+      if (slideIndex < slides.length - 1) {
+        next();
+      } else {
+        // Se estiver no último slide, permite scroll normal
+        setIsScrolling(false);
+      }
+    } else {
+      // Swipe para baixo -> slide anterior
+      if (slideIndex > 0) {
+        prev();
+      } else {
+        // Se estiver no primeiro slide, permite scroll normal
+        setIsScrolling(false);
+      }
+    }
+    
+    // Reset dos valores
+    setTouchStart(0);
+    setTouchEnd(0);
+    
+    // Timeout para evitar múltiplos swipes rápidos
+    setTimeout(() => {
+      setIsScrolling(false);
+    }, 800);
+  };
+
+  // Função para lidar com scroll do mouse (desktop)
   const handleScroll = (e) => {
     if (isScrolling) return;
     
@@ -129,72 +186,55 @@ function CarrocelSolucoes () {
     
     if (!isInCarrocel) return;
 
-    // Detectar direção do scroll
     const delta = e.deltaY || e.detail || -e.wheelDelta;
     
     // Verificar se está no último slide para permitir scroll para baixo
     if (delta > 0 && slideIndex === slides.length - 1) {
-      // Permite scroll para baixo (para a próxima seção)
       return;
     }
     
     // Verificar se está no primeiro slide para permitir scroll para cima
     if (delta < 0 && slideIndex === 0) {
-      // Permite scroll para cima (para a seção anterior)
       return;
     }
 
-    // Previne o scroll padrão se estiver nos slides intermediários
     e.preventDefault();
     
     setIsScrolling(true);
     
     if (delta > 0) {
-      // Scroll para baixo -> próximo slide
       next();
     } else if (delta < 0) {
-      // Scroll para cima -> slide anterior
       prev();
     }
     
-    // Timeout para evitar múltiplos eventos de scroll rápidos
     setTimeout(() => {
       setIsScrolling(false);
     }, 1000);
   };
 
-  // Efeito para adicionar e remover event listeners
+  // Efeito para adicionar event listeners
   useEffect(() => {
     const carrocelElement = carrocelRef.current;
     
-    const handleWheel = (e) => handleScroll(e);
-    const handleTouchStart = (e) => {
-      const touchStartY = e.touches[0].clientY;
-      const handleTouchEnd = (e) => {
-        const touchEndY = e.changedTouches[0].clientY;
-        const delta = touchStartY - touchEndY;
-        
-        if (Math.abs(delta) > 50) { // Limite mínimo para considerar um swipe
-          handleScroll({ deltaY: delta });
-        }
-      };
-      
-      carrocelElement.addEventListener('touchend', handleTouchEnd, { once: true });
-    };
-    
     if (carrocelElement) {
-      carrocelElement.addEventListener('wheel', handleWheel, { passive: false });
-      carrocelElement.addEventListener('touchstart', handleTouchStart);
+      // Listener para desktop (wheel)
+      carrocelElement.addEventListener('wheel', handleScroll, { passive: false });
       
       return () => {
-        carrocelElement.removeEventListener('wheel', handleWheel);
-        carrocelElement.removeEventListener('touchstart', handleTouchStart);
+        carrocelElement.removeEventListener('wheel', handleScroll);
       };
     }
   }, [slideIndex, isScrolling]);
 
   return (
-    <div className='carrocel' ref={carrocelRef}>
+    <div 
+      className='carrocel' 
+      ref={carrocelRef}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div 
         className='carrocel__slides'
         ref={slidesContainerRef}
@@ -270,10 +310,6 @@ function CarrocelSolucoes () {
         ))}
       </div>
       
-      {/* Botões opcionais - você pode remover se quiser */}
-      {/*<button className='carrocel__botao__prev' onClick={prev}>←</button> 
-      <button className='carrocel__botao__next' onClick={next}>→</button>*/}
-
       <div className='carrocel__indicadores'>
         {slides.map((_, index) => (
           <div
