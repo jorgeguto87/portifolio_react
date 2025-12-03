@@ -122,11 +122,13 @@ function CarrocelSolucoes () {
   // Função para lidar com o início do toque
   const handleTouchStart = (e) => {
     setTouchStart(e.touches[0].clientY);
+    setTouchStart(e.touches[0].clientX);
   };
 
   // Função para lidar com o movimento do toque
   const handleTouchMove = (e) => {
     setTouchEnd(e.touches[0].clientY);
+    setTouchEnd(e.touches[0].clientX);
   };
 
   // Função para lidar com o fim do toque
