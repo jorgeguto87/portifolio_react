@@ -1379,6 +1379,7 @@ width: 100%;
       /*margin: 1rem auto 1rem auto;*/
       padding: 1rem;
       margin-top: -8rem;
+      display: flex;
     }
 
     .ofertas__container__conteudo{
@@ -1397,7 +1398,9 @@ width: 100%;
     .ofertas__container__titulo span{
       font-size: 3rem;
     }
-  }
+  }  
+
+  
 
 /*@media screen and (max-width: 360px) and (orientation: portrait) {
     .texto__principal__titulo{
