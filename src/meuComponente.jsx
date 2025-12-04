@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import devjorge from './assets/devjorge.png';
 import java from './assets/java.svg';
 import bot from './assets/bot.png';
@@ -101,7 +101,7 @@ function CarrocelSolucoes () {
       </>
     ),
       imagem: imgBots,
-      backgroundColor: 'linear-gradient(to right, #7EFF8D, #57AD61)',
+      backgroundColor: 'linear-gradient(to bottom, #2e6b3dff, #22502eff)',
       color: "#ffffff",
       colorDescricao: "#FF7373"
     }
@@ -339,6 +339,8 @@ const paginaInicial = (
   </div>
 );
 
+
+
 function MeuComponente() {
   
   useEffect(() => {
@@ -504,12 +506,61 @@ function MeuComponente() {
     return () => clearTimeout(timer);
   }, []);
 
+  const ofertasRef = useRef(null);
+
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const titulo = entry.target.querySelector('.ofertas__container__titulo');
+        
+        if (entry.isIntersecting) {
+          // Adiciona a classe quando o elemento estiver visível
+          titulo.classList.add('animate');
+        } else {
+          // Remove a classe quando o elemento sair da visualização
+          titulo.classList.remove('animate');
+        }
+      });
+    },
+    {
+      threshold: 0.3 // Ativa quando 30% do elemento estiver visível
+    }
+  );
+
+  if (ofertasRef.current) {
+    observer.observe(ofertasRef.current);
+  }
+
+  return () => {
+    if (ofertasRef.current) {
+      observer.unobserve(ofertasRef.current);
+    }
+  };
+}, []);
+  const ofertas = (
+  <div id='divOfertas' className='ofertas__container' ref={ofertasRef}>
+    <div className='wave'>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div className='ofertas__container__conteudo'>
+    <h1 className='ofertas__container__titulo'>
+      SEU SITE PARCELADO EM ATÉ<br /><span>12X SEM JUROS NO CARTÃO</span><br />COM HOSPEDAGEM<br />E<br />1 ANO DE DOMÍNIO GRÁTIS!
+      </h1>
+    </div>
+  </div>
+
+)
+
   return (    
     <div>
         {cabecalho}
-        {paginaInicial}
-        {secaoSolucoes}
+        {paginaInicial}        
         {secaoDiferenciais}
+        {secaoSolucoes}
+        {ofertas}
     </div>
   );
 }
