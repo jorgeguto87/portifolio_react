@@ -909,11 +909,107 @@ width: 100%;
   }
 }
 
+.contatoContainer{
+  
+width: 100%;
+  max-width: 1400px;
+  max-height: 700px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 30px;
+  /*background-image: linear-gradient(to right, #1e0935, #0d0416);*/
+  backdrop-filter: brightness(90%);
+  /*box-shadow: 0 20px 60px rgba(250, 249, 249, 0.24);*/
+  margin: 2rem auto 0 auto;
+}
 
+.tituloContato{
+  font-family: var(--fonte-principal);
+  font-size: 3rem;
+  text-align: center;
+  margin-top: 1rem;
+  text-shadow: 4px 4px 4px #4d4d4dc5;
+}
 
+.containerFormulario{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
 
+.formulario{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
 
+.forms{
+  display: flex;
+  flex-direction: column;
+  /*margin-left: 3rem;*/
+  gap: 0.5rem;
+}
 
+.forms input{
+  width: 26rem;
+  background-color: #c4c0c0;
+  font-size: 1rem;
+  border: none;
+  border-radius:0.5rem;
+  height: 2rem;
+  padding: 0.5rem;
+  font-family: var(--fonte-tercearia);
+}
+
+.forms textarea{
+  border-radius: 0.5rem;
+  height: 10rem;
+  padding: 0.5rem;
+  font-family: var(--fonte-tercearia);
+}
+
+.forms label{
+  font-family: var(--fonte-secundaria);
+  font-size: 1rem;
+}
+
+#btSubmit{
+  width: 6rem;
+  margin: auto;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 2px  #9053FB;
+}
+
+#btSubmit:hover{
+  background-color: #e1e1e1;
+  box-shadow: 1px 1px 1px 1px  #9053FB;
+}
+
+.container__rodape {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.texto__rodape{
+  text-align: center;
+  font-family: var(--fonte-secundaria);
+  margin-bottom: 0.5rem;
+  }
+
+.logo__rodape {
+  width: 2rem;
+  transition: 0.3s ease-in-out;
+}
+
+.logo__rodape:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px #a855f7);
+}
 /*====[RESPONSIVIDADE]====*/
 
 /*====[ORIENTAÇÃO LANDSCAPE]====*/
@@ -1382,6 +1478,10 @@ width: 100%;
       display: flex;
     }
 
+    .wave span{
+       transform: translate(-0, -25%);     
+    }
+
     .ofertas__container__conteudo{
       display: flex;
       flex-direction: column;
@@ -1478,3 +1578,146 @@ width: 100%;
       
     }
 }*/
+
+/*====[CONTATO - LANDSCAPE]====*/
+
+@media screen and (max-width: 1280px) and (orientation: landscape){
+
+  .forms input{
+    width: 22rem;
+  }
+
+  .forms textarea{
+    width: 22rem;
+  }
+
+}
+
+@media screen and (max-width: 934px) and (orientation: landscape){
+
+  .containerFormulario{
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .containerFormulario img{
+    display: none;
+  }
+
+  .contatoContainer{
+    max-height: none;
+    padding-bottom: 2rem;
+  }
+
+}
+
+@media screen and (max-width: 740px) and (orientation: landscape){
+
+  .tituloContato{
+    font-size: 2rem;
+  }
+
+  .forms input,
+  .forms textarea{
+    width: 18rem;
+  }
+
+}
+
+/*====[CONTATO - PORTRAIT]====*/
+
+@media screen and (max-width: 1024px) and (orientation: portrait){
+
+  .containerFormulario{
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .containerFormulario img{
+    display: none;
+  }
+
+  .contatoContainer{
+    max-height: none;
+    padding-bottom: 2rem;
+  }
+
+  .forms input,
+  .forms textarea{
+    width: 24rem;
+  }
+
+}
+
+@media screen and (max-width: 820px) and (orientation: portrait){
+
+  .tituloContato{
+    font-size: 2.5rem;
+  }
+
+  .forms input,
+  .forms textarea{
+    width: 20rem;
+  }
+
+}
+
+@media screen and (max-width: 600px){
+
+  .tituloContato{
+    font-size: 2rem;
+    padding: 0 1rem;
+  }
+
+  .forms{
+    align-items: center;
+  }
+
+  .forms input,
+  .forms textarea{
+    width: 90%;
+  }
+
+  .forms textarea{
+    height: 8rem;
+  }
+
+  #btSubmit{
+    width: 8rem;
+  }
+
+}
+
+/*====[RODAPÉ]====*/
+
+@media screen and (max-width: 768px){
+
+  .container__rodape{
+    gap: 1.2rem;
+    padding: 0 1rem;
+  }
+
+  .logo__rodape{
+    width: 1.6rem;
+  }
+
+  .texto__rodape{
+    font-size: 0.9rem;
+    padding: 0 1rem;
+  }
+
+}
+
+@media screen and (max-width: 480px){
+
+  .logo__rodape{
+    width: 1.4rem;
+  }
+
+  .texto__rodape{
+    font-size: 0.8rem;
+  }
+
+}

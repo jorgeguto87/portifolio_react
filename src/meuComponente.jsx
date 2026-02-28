@@ -4,6 +4,20 @@ import java from './assets/java.svg';
 import bot from './assets/bot.png';
 import hand from './assets/hand.png';
 import rocket from './assets/rocket.png';
+import imgContato from './assets/imgContato.png';
+import logo_git from './assets/logo_git.png';
+import logo_html5 from './assets/logo_html5.png';
+import logo_java from './assets/logo_java.png';
+import logo_javascript from './assets/logo_javascript.png';
+import logo_mongodb from './assets/logo_mongodb.png';
+import logo_mysql from './assets/logo_mysql.png';
+import logo_nodejs from './assets/logo_nodejs.png';
+import logo_react from './assets/logo_react.png';
+import logo_typescript from './assets/logo_typescript.png';
+import emailjs from '@emailjs/browser'
+import Swal from 'sweetalert2'
+
+
 
 const imgLanding = <img style={{ borderRadius: '1.5rem' }} src={rocket} alt='Imagem de Landing Pages' />;
 const imgSites = <img style={{ borderRadius: '1.5rem'}} src={hand} alt='Imagem de Sites e Páginas' />;
@@ -34,9 +48,40 @@ const cabecalho = (
     </header>
 );
 
+const logos = [
+  { src: logo_git, alt: "Git" },
+  { src: logo_html5, alt: "HTML5" },
+  { src: logo_java, alt: "Java" },
+  { src: logo_javascript, alt: "JavaScript" },
+  { src: logo_mongodb, alt: "MongoDB" },
+  { src: logo_mysql, alt: "MySQL" },
+  { src: logo_nodejs, alt: "Node.js" },
+  { src: logo_react, alt: "React" },
+  { src: logo_typescript, alt: "TypeScript" }
+];
+
+const rodape = (
+  <footer>
+    <div className='container__rodape'>
+      {logos.map((logo, index) => (
+        <img
+          key={index}
+          src={logo.src}
+          alt={`Logo ${logo.alt}`}
+          className="logo__rodape"
+        />
+      ))}
+    </div>
+
+    <p className="texto__rodape">
+      © {new Date().getFullYear()} @devaugusto — Desenvolvido com tecnologia e criatividade.
+    </p>
+  </footer>
+);
+
 const secaoDiferenciais = (
   <div className='secao__diferenciais__container'>
-  <section id='section3' className='secao__diferenciais'>
+  <section  className='secao__diferenciais'>
     <svg className='svg__fundo' width="950" height="900" viewBox="0 0 950 900" fill="none" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
@@ -554,6 +599,76 @@ function MeuComponente() {
 
 )
 
+const handleSubmit = (e) => {
+  e.preventDefault()
+
+  emailjs.send(
+    'service_bi023d9',
+    'template_wy14ysj',
+    {
+      nome: e.target.fname.value,
+      email: e.target.femail.value,
+      telefone: e.target.fphone.value,
+      mensagem: e.target.fmessage.value
+    },
+    'vrvKrSYqs4oqcQGBI'
+  )
+  .then(() => {
+
+    Swal.fire({
+      background: 'linear-gradient(to right, #2c1633, #170b1b)',
+      color: '#ffffff',
+      icon: 'success',
+      title: 'Mensagem enviada!',
+      text: 'Entraremos em contato em breve 🚀',
+      confirmButtonColor: '#8e44ad',
+      confirmButtonText: 'Perfeito!'
+    })
+
+    e.target.reset()
+
+  })
+  .catch(() => {
+
+    Swal.fire({
+      background: 'linear-gradient(to right, #2c1633, #170b1b)',
+      color: '#ffffff',
+      icon: 'error',
+      title: 'Erro ao enviar',
+      text: 'Algo deu errado. Tente novamente.',
+      confirmButtonColor: '#c0392b'
+    })
+
+  })
+}
+
+
+const contato = (
+  <div id='section3' className='contatoContainer'>
+    <h1 className='tituloContato'>
+      Vamos dar o primeiro passo?
+    </h1>
+    <div className='containerFormulario'>
+    <div className='formulario'>
+      <form className='forms' onSubmit={handleSubmit}>
+        <label htmlFor='fname'>Nome</label>
+        <input type='text' id='fname' name='fname'></input>
+        <label htmlFor='femail'>Email</label>
+        <input type='email' id='femail' name='femail'></input>
+        <label htmlFor='fphone'>Telefone</label>
+        <input type='tel' id='fphone' name='fphone'></input>
+        <label htmlFor='fmessage'>Mensagem</label>
+        <textarea type='text' id='fmessage' name='fmessage'></textarea>
+        <input type='submit' id='btSubmit' value='Enviar'></input>
+      </form>
+    </div>
+          <img src={imgContato} alt='imagem contato' style={{borderRadius: '1.5rem', opacity: '85%', maxHeight: '40rem'}}></img>
+
+  </div>
+  </div>
+)
+
+
   return (    
     <div>
         {cabecalho}
@@ -561,6 +676,8 @@ function MeuComponente() {
         {secaoDiferenciais}
         {secaoSolucoes}
         {ofertas}
+        {contato}
+        {rodape}
     </div>
   );
 }
