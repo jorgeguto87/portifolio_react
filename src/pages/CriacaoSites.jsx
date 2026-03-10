@@ -1,8 +1,10 @@
 import { Helmet } from "react-helmet-async"
+import { Link } from "react-router-dom"
+
 
 import "../meuComponente.css"
 
-import hand from "../assets/hand.png"
+import sites from "../assets/sites.jpeg"
 import java from "../assets/java.svg"
 
 export default function CriacaoSites(){
@@ -27,11 +29,11 @@ href="https://www.devaugusto.com.br/criacao-de-sites"
 
 </Helmet>
 
-<div className="pagina__inicial">
+<div className="pagina__inicial pagina__sites">
 
 <img
-className="imagem__capa"
-src={hand}
+className="imagem__pages"
+src={sites}
 alt="Criação de sites profissionais"
 />
 
@@ -56,11 +58,11 @@ perfeitamente em computadores, tablets e celulares.
 
 <br /><br />
 
-✔ experiência do usuário  
-✔ design moderno  
-✔ performance e velocidade  
-✔ estrutura otimizada para Google  
-✔ integração com WhatsApp  
+✔ experiência do usuário<br />  
+✔ design moderno<br />  
+✔ performance e velocidade<br />  
+✔ estrutura otimizada para Google<br />  
+✔ integração com WhatsApp<br />  
 
 <br /><br />
 
@@ -68,6 +70,11 @@ Mais do que apenas um site, o objetivo é criar uma presença digital
 capaz de gerar oportunidades reais de negócio.
 
 </p>
+
+<Link to="/" className="botao__voltar">
+← Voltar
+</Link>
+
 
 </div>
 

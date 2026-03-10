@@ -1,8 +1,9 @@
 import { Helmet } from "react-helmet-async"
+import { Link } from "react-router-dom"
 
 import "../meuComponente.css"
 
-import rocket from "../assets/rocket.png"
+import land from "../assets/land.jpeg"
 import java from "../assets/java.svg"
 
 
@@ -10,7 +11,7 @@ export default function LandingPages(){
 
 return(
 
-<div>
+<div className="pagina__inicial pagina__landingPages">
 
 <Helmet>
 
@@ -31,8 +32,8 @@ href="https://www.devaugusto.com.br/landing-pages"
 <section className="pagina__inicial">
 
     <img
-    className="imagem__capa"
-    src={rocket}
+    className="imagem__pages"
+    src={land}
     alt="Criação de Landing Pages"
     />
 
@@ -60,11 +61,11 @@ Ela pode ser utilizada para:
 
 <br /><br />
 
-✔ captação de leads  
-✔ campanhas de anúncios  
-✔ lançamentos de produtos  
-✔ promoções  
-✔ geração de contatos via WhatsApp  
+✔ captação de leads<br />  
+✔ campanhas de anúncios<br />  
+✔ lançamentos de produtos<br />  
+✔ promoções<br />  
+✔ geração de contatos via WhatsApp<br />  
 
 <br /><br />
 
@@ -73,6 +74,10 @@ rápido e estrutura pensada para maximizar resultados.
 
 </p>
 
+<Link to="/" className="botao__voltar">
+← Voltar
+</Link>
+
 <img
 className="imagem__fundo"
 src={java}
@@ -80,7 +85,10 @@ alt="background tecnologia"
 />
 
 
+
 </div>
+
+
 
 </section>
 

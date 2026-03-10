@@ -1,8 +1,10 @@
 import { Helmet } from "react-helmet-async"
+import { Link } from "react-router-dom"
+
 
 import "../meuComponente.css"
 
-import bot from "../assets/bot.png"
+import chatbot_zap from "../assets/chatbot_zap.png"
 import java from "../assets/java.svg"
 
 
@@ -28,11 +30,11 @@ href="https://www.devaugusto.com.br/chatbot-whatsapp"
 
 </Helmet>
 
-<section className="pagina__inicial">
+<section className="pagina__inicial pagina__chatbot">
 
             <img
-        className="imagem__capa"
-        src={bot}
+        className="imagem__pages"
+        src={chatbot_zap}
         alt="Criação de Chatbot Whatsapp"
         />
 
@@ -62,11 +64,11 @@ Os chatbots podem:
 
 <br /><br />
 
-✔ responder automaticamente clientes  
-✔ enviar informações sobre produtos ou serviços  
-✔ captar leads  
-✔ organizar atendimento  
-✔ integrar com processos de vendas  
+✔ responder automaticamente clientes<br />  
+✔ enviar informações sobre produtos ou serviços<br />  
+✔ captar leads<br />  
+✔ organizar atendimento<br />  
+✔ integrar com processos de vendas<br />  
 
 <br /><br />
 
@@ -74,6 +76,11 @@ Tudo isso mantendo a identidade da sua empresa e proporcionando uma
 experiência rápida e eficiente para quem entra em contato.
 
 </p>
+
+<Link to="/" className="botao__voltar">
+← Voltar
+</Link>
+
 
 <img
 className="imagem__fundo"
