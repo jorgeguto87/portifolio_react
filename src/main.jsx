@@ -1,10 +1,23 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './meuComponente.css'
-import MeuComponente from './meuComponente.jsx'
+
+import { BrowserRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
+
+import AppRoutes from './AppRoutes'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <MeuComponente />
-  </StrictMode>,
+<StrictMode>
+
+<HelmetProvider>
+
+<BrowserRouter>
+
+<AppRoutes/>
+
+</BrowserRouter>
+
+</HelmetProvider>
+
+</StrictMode>
 )

@@ -16,6 +16,7 @@ import logo_react from './assets/logo_react.png';
 import logo_typescript from './assets/logo_typescript.png';
 import emailjs from '@emailjs/browser'
 import Swal from 'sweetalert2'
+import { Link } from 'react-router-dom'
 
 
 
@@ -27,13 +28,25 @@ const imagemCapa = <img className='imagem__capa' src={devjorge} alt='Dev Jorge' 
 const imagemFundo = <img className='imagem__fundo' src={java} alt='fundo_Java' />;
 const textoPrincipal = (
   <div className='texto__principal'>
-    <h1 className='texto__principal__titulo'>Tenha mais credibilidade</h1>
-    <h2 className='texto__principal__subtitulo'>no seu negócio com estratégias de qualidade!</h2>
-    <p className='texto__principal__paragrafo'><strong>Credibilidade, design e tecnologia — tudo em um só projeto.</strong><br />
-Sites e landing pages desenvolvidos com visual marcante, navegação fluida e estratégia inteligente para fortalecer a presença digital da sua marca.<br />
-Se o que você precisa é um chatbot que transforma atendimento em resultado, conte com o desenvolvimento de assistentes personalizados para WhatsApp, integrados ao seu funil de marketing e atendimento.
-<br /><strong>Sua presença digital merece ser notada. Vamos dar o próximo passo?</strong>
-</p>
+    <h1 className='texto__principal__titulo'>
+      Criação de Sites, Landing Pages e Chatbots para WhatsApp
+    </h1>
+
+    <h2 className='texto__principal__subtitulo'>
+      Tenha mais credibilidade no seu negócio com estratégias digitais de qualidade!
+    </h2>
+
+    <p className='texto__principal__paragrafo'>
+      <strong>Credibilidade, design e tecnologia — tudo em um só projeto.</strong><br />
+      
+      Desenvolvo <strong>sites profissionais e landing pages modernas</strong> com visual marcante, navegação fluida e estrutura estratégica para fortalecer a presença digital da sua empresa e atrair novos clientes através da internet.<br /><br />
+      
+      Cada projeto é pensado para unir <strong>design, performance e estratégia</strong>, criando experiências digitais que transmitem confiança e ajudam sua marca a se destacar no mercado.<br /><br />
+      
+      Se o que você precisa é de um <strong>chatbot para WhatsApp</strong> que automatize seu atendimento e transforme conversas em oportunidades reais de negócio, também desenvolvo <strong>assistentes inteligentes personalizados</strong>, integrados ao seu funil de marketing e relacionamento com clientes.<br /><br />
+      
+      <strong>Sua presença digital merece ser notada. Vamos dar o próximo passo?</strong>
+    </p>
   </div>
 );
 
@@ -109,6 +122,7 @@ function CarrocelSolucoes () {
   const slides = [
     {
       titulo: "Landing Pages",
+      link: "/landing-pages",
       subTitulo: "Visual, velocidade e estratégia!",
       descricao: 
       (
@@ -124,6 +138,7 @@ function CarrocelSolucoes () {
     },
     {
       titulo: "Sites e Páginas",
+      link: "/criacao-de-sites",
       subTitulo: "Onde estratégia encontra design!",
       descricao: (
       <>
@@ -138,6 +153,7 @@ function CarrocelSolucoes () {
     },
     {
       titulo: "Chatbots",
+      link: "/chatbot-whatsapp",
       subTitulo: "Atendimento instantâneo otimizado!",
       descricao: (
         <>
@@ -342,7 +358,12 @@ function CarrocelSolucoes () {
               >
                 {slide.descricao}
               </p>
+              <Link to={slide.link} className="botao__saiba__mais">
+              Saiba mais →
+              </Link>
             </div>
+
+            
 
             <div 
               className='carrocel__slide__imagem'

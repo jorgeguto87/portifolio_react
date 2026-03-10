@@ -1,0 +1,93 @@
+import { Helmet } from "react-helmet-async"
+
+import "../meuComponente.css"
+
+import bot from "../assets/bot.png"
+import java from "../assets/java.svg"
+
+
+export default function ChatbotWhatsapp(){
+
+return(
+
+<div>
+
+<Helmet>
+
+<title>Chatbot para WhatsApp para Empresas | Dev Augusto</title>
+
+<meta
+name="description"
+content="Desenvolvimento de chatbots para WhatsApp que automatizam atendimento e ajudam empresas a captar e atender clientes."
+/>
+
+<link
+rel="canonical"
+href="https://www.devaugusto.com.br/chatbot-whatsapp"
+/>
+
+</Helmet>
+
+<section className="pagina__inicial">
+
+            <img
+        className="imagem__capa"
+        src={bot}
+        alt="Criação de Chatbot Whatsapp"
+        />
+
+
+<div className="texto__principal">
+
+    
+
+<h1 className="texto__principal__titulo">
+Chatbot para WhatsApp
+</h1>
+
+<h2 className="texto__principal__subtitulo">
+Automatize o atendimento da sua empresa
+</h2>
+
+<p className="texto__principal__paragrafo">
+
+O WhatsApp se tornou um dos principais canais de comunicação entre
+empresas e clientes.
+
+Com um chatbot personalizado é possível automatizar atendimentos,
+responder perguntas frequentes e organizar o fluxo de contato com os
+clientes.
+
+Os chatbots podem:
+
+<br /><br />
+
+✔ responder automaticamente clientes  
+✔ enviar informações sobre produtos ou serviços  
+✔ captar leads  
+✔ organizar atendimento  
+✔ integrar com processos de vendas  
+
+<br /><br />
+
+Tudo isso mantendo a identidade da sua empresa e proporcionando uma
+experiência rápida e eficiente para quem entra em contato.
+
+</p>
+
+<img
+className="imagem__fundo"
+src={java}
+alt="background tecnologia"
+/>
+
+
+</div>
+
+</section>
+
+</div>
+
+)
+
+}

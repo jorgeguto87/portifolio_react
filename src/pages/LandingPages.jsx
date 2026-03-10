@@ -1,0 +1,91 @@
+import { Helmet } from "react-helmet-async"
+
+import "../meuComponente.css"
+
+import rocket from "../assets/rocket.png"
+import java from "../assets/java.svg"
+
+
+export default function LandingPages(){
+
+return(
+
+<div>
+
+<Helmet>
+
+<title>Landing Pages de Alta Conversão | Dev Augusto</title>
+
+<meta
+name="description"
+content="Criação de landing pages profissionais para campanhas, captação de leads e aumento de vendas."
+/>
+
+<link
+rel="canonical"
+href="https://www.devaugusto.com.br/landing-pages"
+/>
+
+</Helmet>
+
+<section className="pagina__inicial">
+
+    <img
+    className="imagem__capa"
+    src={rocket}
+    alt="Criação de Landing Pages"
+    />
+
+<div className="texto__principal">
+
+    
+
+<h1 className="texto__principal__titulo">
+Landing Pages de Alta Conversão
+</h1>
+
+<h2 className="texto__principal__subtitulo">
+Transforme visitantes em clientes
+</h2>
+
+<p className="texto__principal__paragrafo">
+
+Landing pages são páginas estratégicas criadas para campanhas de
+marketing digital, com foco total em conversão.
+
+Diferente de um site institucional, uma landing page possui uma
+estrutura pensada para guiar o visitante até uma ação específica.
+
+Ela pode ser utilizada para:
+
+<br /><br />
+
+✔ captação de leads  
+✔ campanhas de anúncios  
+✔ lançamentos de produtos  
+✔ promoções  
+✔ geração de contatos via WhatsApp  
+
+<br /><br />
+
+Cada landing page é desenvolvida com design moderno, carregamento
+rápido e estrutura pensada para maximizar resultados.
+
+</p>
+
+<img
+className="imagem__fundo"
+src={java}
+alt="background tecnologia"
+/>
+
+
+</div>
+
+</section>
+
+</div>
+
+)
+
+}
