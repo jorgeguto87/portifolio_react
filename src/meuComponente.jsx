@@ -45,12 +45,12 @@ const textoPrincipal = (
       
       Se o que você precisa é de um <strong>chatbot para WhatsApp</strong> que automatize seu atendimento e transforme conversas em oportunidades reais de negócio, também desenvolvo <strong>assistentes inteligentes personalizados</strong>, integrados ao seu funil de marketing e relacionamento com clientes.<br /><br />
       
-      <strong>Sua presença digital merece ser notada. Vamos dar o próximo passo?</strong>
+      <strong>Sua presença digital merece ser notada.<br />Vamos dar o próximo passo?</strong>
     </p>
   </div>
 );
 
-const cabecalho = (
+/*const cabecalho = (
     <header>
         <div className='menu__cabecalho'>
             <a href="#section1">Início</a>
@@ -60,19 +60,100 @@ const cabecalho = (
         <h1 className='titulo__cabecalho'>{titulo}</h1>
     </header>
 );
+*/
 
-const logos = [
-  { src: logo_git, alt: "Git" },
-  { src: logo_html5, alt: "HTML5" },
-  { src: logo_java, alt: "Java" },
-  { src: logo_javascript, alt: "JavaScript" },
-  { src: logo_mongodb, alt: "MongoDB" },
-  { src: logo_mysql, alt: "MySQL" },
-  { src: logo_nodejs, alt: "Node.js" },
-  { src: logo_react, alt: "React" },
-  { src: logo_typescript, alt: "TypeScript" }
-];
+export function Cabecalho({ ocultarSolucoes = false }){
+return(
 
+<header>
+    <div className='menu__cabecalho'>
+        <a href="#section1">Início</a>
+        {!ocultarSolucoes && <a href="#section2">Soluções</a>}
+        <a href="#section3">Contato</a>
+    </div>
+
+    <h1 className='titulo__cabecalho'>{titulo}</h1>
+</header>
+
+)
+}
+
+export function Contato(){
+  const handleSubmit = (e) => {
+  e.preventDefault()
+
+  emailjs.send(
+    'service_bi023d9',
+    'template_wy14ysj',
+    {
+      nome: e.target.fname.value,
+      email: e.target.femail.value,
+      telefone: e.target.fphone.value,
+      mensagem: e.target.fmessage.value
+    },
+    'vrvKrSYqs4oqcQGBI'
+  )
+  .then(() => {
+
+    Swal.fire({
+      background: 'linear-gradient(to right, #2c1633, #170b1b)',
+      color: '#ffffff',
+      icon: 'success',
+      title: 'Mensagem enviada!',
+      text: 'Entraremos em contato em breve 🚀',
+      confirmButtonColor: '#8e44ad',
+      confirmButtonText: 'Perfeito!'
+    })
+
+    e.target.reset()
+
+  })
+  .catch(() => {
+
+    Swal.fire({
+      background: 'linear-gradient(to right, #2c1633, #170b1b)',
+      color: '#ffffff',
+      icon: 'error',
+      title: 'Erro ao enviar',
+      text: 'Algo deu errado. Tente novamente.',
+      confirmButtonColor: '#c0392b'
+    })
+
+  })
+}
+  return(
+    
+    <div id='section3' className='contatoContainer'>
+    <h1 className='tituloContato'>
+      Vamos dar o primeiro passo?
+    </h1>
+    <div className='containerFormulario'>
+    <div className='formulario'>
+      <form className='forms' onSubmit={handleSubmit}>
+        <label htmlFor='fname'>Nome</label>
+        <input type='text' id='fname' name='fname'></input>
+        <label htmlFor='femail'>Email</label>
+        <input type='email' id='femail' name='femail'></input>
+        <label htmlFor='fphone'>Telefone</label>
+        <input type='tel' id='fphone' name='fphone'></input>
+        <label htmlFor='fmessage'>Mensagem</label>
+        <textarea type='text' id='fmessage' name='fmessage'></textarea>
+        <input type='submit' id='btSubmit' value='Enviar'></input>
+      </form>
+    </div>
+          <img src={imgContato} alt='imagem contato' style={{borderRadius: '1.5rem', opacity: '85%', maxHeight: '40rem'}}></img>
+
+  </div>
+  </div>
+
+  
+  )
+}
+
+
+
+
+/*
 const rodape = (
   <footer>
     <div className='container__rodape'>
@@ -87,10 +168,45 @@ const rodape = (
     </div>
 
     <p className="texto__rodape">
-      © {new Date().getFullYear()} @devaugusto — Desenvolvido com tecnologia e criatividade.
+      © {new Date().getFullYear()} @devaugusto — Tecnologia e Desenvolvimento.
     </p>
   </footer>
 );
+*/
+
+export function Rodape(){
+  const logos = [
+  { src: logo_git, alt: "Git" },
+  { src: logo_html5, alt: "HTML5" },
+  { src: logo_java, alt: "Java" },
+  { src: logo_javascript, alt: "JavaScript" },
+  { src: logo_mongodb, alt: "MongoDB" },
+  { src: logo_mysql, alt: "MySQL" },
+  { src: logo_nodejs, alt: "Node.js" },
+  { src: logo_react, alt: "React" },
+  { src: logo_typescript, alt: "TypeScript" }
+];
+  return (
+      <footer>
+    <div className='container__rodape'>
+      {logos.map((logo, index) => (
+        <img
+          key={index}
+          src={logo.src}
+          alt={`Logo ${logo.alt}`}
+          className="logo__rodape"
+        />
+      ))}
+    </div>
+
+    <p className="texto__rodape">
+      © {new Date().getFullYear()} @devaugusto — Tecnologia e Desenvolvimento.
+    </p>
+  </footer>
+  
+  )
+  
+}
 
 const secaoDiferenciais = (
   <div className='secao__diferenciais__container'>
@@ -620,7 +736,7 @@ function MeuComponente() {
 
 )
 
-const handleSubmit = (e) => {
+/*const handleSubmit = (e) => {
   e.preventDefault()
 
   emailjs.send(
@@ -662,8 +778,9 @@ const handleSubmit = (e) => {
 
   })
 }
+*/
 
-
+/*
 const contato = (
   <div id='section3' className='contatoContainer'>
     <h1 className='tituloContato'>
@@ -688,17 +805,19 @@ const contato = (
   </div>
   </div>
 )
+*/
+
 
 
   return (    
     <div>
-        {cabecalho}
+        <Cabecalho />
         {paginaInicial}        
         {secaoDiferenciais}
         {secaoSolucoes}
         {ofertas}
-        {contato}
-        {rodape}
+        <Contato />
+        <Rodape />
     </div>
   );
 }

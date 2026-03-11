@@ -2,16 +2,18 @@ import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
 
 import "../meuComponente.css"
+import { Cabecalho, Contato, Rodape } from "../meuComponente"
 
 import land from "../assets/land.jpeg"
 import java from "../assets/java.svg"
 
 
-export default function LandingPages(){
+
+function LandingPage(){
 
 return(
 
-<div className="pagina__inicial pagina__landingPages">
+<div id='section1' className="pagina__inicial pagina__landingPages">
 
 <Helmet>
 
@@ -31,15 +33,13 @@ href="https://www.devaugusto.com.br/landing-pages"
 
 <section className="pagina__inicial">
 
-    <img
-    className="imagem__pages"
-    src={land}
-    alt="Criação de Landing Pages"
-    />
+<img
+className="imagem__pages"
+src={land}
+alt="Criação de Landing Pages"
+/>
 
 <div className="texto__principal">
-
-    
 
 <h1 className="texto__principal__titulo">
 Landing Pages de Alta Conversão
@@ -61,11 +61,11 @@ Ela pode ser utilizada para:
 
 <br /><br />
 
-✔ captação de leads<br />  
-✔ campanhas de anúncios<br />  
-✔ lançamentos de produtos<br />  
-✔ promoções<br />  
-✔ geração de contatos via WhatsApp<br />  
+✔ captação de leads<br/>  
+✔ campanhas de anúncios<br/>  
+✔ lançamentos de produtos<br/>  
+✔ promoções<br/>  
+✔ geração de contatos via WhatsApp<br/>
 
 <br /><br />
 
@@ -84,15 +84,28 @@ src={java}
 alt="background tecnologia"
 />
 
-
-
 </div>
-
-
 
 </section>
 
 </div>
+
+)
+
+}
+
+
+
+export default function LandingPages(){
+
+return(
+
+<>
+<Cabecalho ocultarSolucoes />
+<LandingPage />
+<Contato />
+<Rodape />
+</>
 
 )
 

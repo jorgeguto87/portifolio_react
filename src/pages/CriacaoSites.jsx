@@ -3,15 +3,17 @@ import { Link } from "react-router-dom"
 
 
 import "../meuComponente.css"
+import { Cabecalho, Contato, Rodape } from "../meuComponente"
+
 
 import sites from "../assets/sites.jpeg"
 import java from "../assets/java.svg"
 
-export default function CriacaoSites(){
+function CriacaoSite(){
 
 return(
 
-<div>
+<div id='section1'>
 
 <Helmet>
 
@@ -90,4 +92,16 @@ alt="background tecnologia"
 
 )
 
+}
+
+export default function CriacaoSites(){
+    return (
+    <>
+    <Cabecalho ocultarSolucoes />
+    <CriacaoSite />
+    <Contato />
+    <Rodape />
+    </>
+    )
+    
 }

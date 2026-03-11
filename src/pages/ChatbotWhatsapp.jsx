@@ -3,16 +3,18 @@ import { Link } from "react-router-dom"
 
 
 import "../meuComponente.css"
+import { Cabecalho, Contato, Rodape } from "../meuComponente"
+
 
 import chatbot_zap from "../assets/chatbot_zap.png"
 import java from "../assets/java.svg"
 
 
-export default function ChatbotWhatsapp(){
+function ChatbotZap(){
 
 return(
 
-<div>
+<div id="section1">
 
 <Helmet>
 
@@ -97,4 +99,16 @@ alt="background tecnologia"
 
 )
 
+}
+
+export default function ChatbotWhatsapp(){
+
+    return(
+        <>
+        <Cabecalho ocultarSolucoes />
+        <ChatbotZap />
+        <Contato />
+        <Rodape />
+        </>
+    )
 }
