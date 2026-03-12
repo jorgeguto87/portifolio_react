@@ -558,134 +558,86 @@ function MeuComponente() {
   }, []);
 
   useEffect(() => {
-    const gsap = window.gsap;
-    if (!gsap) return;
+    const textos = [
+      { normal: "EMPRESAS COM PRESENÇA DIGITAL SÓLIDA CRESCEM AUTOMATICAMENTE", destaque: "ATRAINDO CLIENTES CONTINUAMENTE SEM ESFORÇO ATIVO" },
+      { normal: "UM SITE BEM FEITO TRANSFORMA CURIOSIDADE EM CONVERSÃO REAL", destaque: "UNINDO ESTRATÉGIA DESIGN E PERFORMANCE" },
+      { normal: "NÃO CRIE APENAS UM SITE COMUM", destaque: "OFEREÇA EXPERIÊNCIAS MEMORÁVEIS QUE ENCANTAM E CONECTAM CLIENTES" },
+      { normal: "UMA EXPERIÊNCIA DIGITAL FORTE COMEÇA COM UM SITE IMPRESSIONANTE", destaque: "INTEGRADO A TECNOLOGIAS MODERNAS E EFICIENTES" },
+      { 
+  normal: "NEGÓCIOS QUE NÃO ESTÃO NA INTERNET SIMPLESMENTE NÃO EXISTEM PARA MILHARES DE CLIENTES",
+  destaque: "UM SITE PROFISSIONAL COLOCA SUA EMPRESA NO MAPA DIGITAL"
+},
 
-    const splitManual = (texto) => {
-      const el = document.getElementById("splitText");
-      if (!el) return [];
-      
-      el.innerHTML = texto;
-      el.style.opacity = 1;
-      
-      const walker = document.createTreeWalker(
-        el,
-        NodeFilter.SHOW_TEXT,
-        null,
-        false
-      );
-      
-      const textNodes = [];
-      while(walker.nextNode()) {
-        textNodes.push(walker.currentNode);
-      }
-      
-      textNodes.forEach(node => {
-        const words = node.textContent.split(' ');
-        const fragment = document.createDocumentFragment();
-        
-        words.forEach((word, i) => {
-          const wordWrap = document.createElement('span');
-          wordWrap.style.display = 'inline-block';
-          wordWrap.style.whiteSpace = 'nowrap';
-          
-          word.split('').forEach(char => {
-            const span = document.createElement('span');
-            span.textContent = char;
-            span.className = 'char';
-            span.style.display = 'inline-block';
-            span.style.whiteSpace = 'pre';
-            wordWrap.appendChild(span);
-          });
-          
-          fragment.appendChild(wordWrap);
-          
-          if (i < words.length - 1) {
-            fragment.appendChild(document.createTextNode(' '));
-          }
-        });
-        
-        node.parentNode.replaceChild(fragment, node);
-      });
-      
-      return el.querySelectorAll('.char');
-    };
+{ 
+  normal: "UM SITE NÃO É APENAS UMA PÁGINA NA INTERNET",
+  destaque: "É A VITRINE DIGITAL QUE TRABALHA PARA VOCÊ 24 HORAS POR DIA"
+},
 
-    const loopTextos = () => {
-      const tl = gsap.timeline({ onComplete: loopTextos });
-      
-      // TEXTO 1
-      let chars1 = splitManual("EMPRESAS COM PRESENÇA DIGITAL SÓLIDA CRESCEM AUTOMATICAMENTE, <strong>ATRAINDO CLIENTES CONTINUAMENTE SEM ESFORÇO ATIVO.</strong>");
-      
-      tl.from(chars1, {
-        duration: 2,
-        yPercent: () => gsap.utils.random(-150, 150),
-        xPercent: () => gsap.utils.random(-150, 150),
-        opacity: 0,
-        stagger: {from: "random", amount: 3},
-        ease: "power3.out"
-      })
-      .to(chars1, {opacity: 0, duration: 1}, "+=8")
-      
-      // TEXTO 2
-      .call(() => {
-        let chars2 = splitManual("UM SITE BEM FEITO TRANSFORMA CURIOSIDADE EM CONVERSÃO REAL, <strong>UNINDO ESTRATÉGIA, DESIGN E PERFORMANCE.</strong>");
-        
-        gsap.from(chars2, {
-          duration: 2,
-          yPercent: () => gsap.utils.random(-150, 150),
-          xPercent: () => gsap.utils.random(-150, 150),
-          opacity: 0,
-          stagger: {from: "random", amount: 3},
-          ease: "power3.out"
-        });
-        
-        gsap.to(chars2, {opacity: 0, duration: 1, delay: 8});
-      })
-      .to({}, {duration: 11})
-      
-      // TEXTO 3
-      .call(() => {
-        let chars3 = splitManual("NÃO CRIE APENAS UM SITE COMUM, <strong>OFEREÇA EXPERIÊNCIAS MEMORÁVEIS QUE ENCANTAM E CONECTAM CLIENTES.</strong>");
-        
-        gsap.from(chars3, {
-          duration: 2,
-          yPercent: () => gsap.utils.random(-150, 150),
-          xPercent: () => gsap.utils.random(-150, 150),
-          opacity: 0,
-          stagger: {from: "random", amount: 3},
-          ease: "power3.out"
-        });
-        
-        gsap.to(chars3, {opacity: 0, duration: 1, delay: 8});
-      })
-      .to({}, {duration: 11})
-      
-      // TEXTO 4
-      .call(() => {
-        let chars4 = splitManual("UMA EXPERIÊNCIA DIGITAL FORTE COMEÇA COM UM SITE IMPRESSIONANTE, <strong>INTEGRADO A TECNOLOGIAS MODERNAS E EFICIENTES.</strong>");
-        
-        gsap.from(chars4, {
-          duration: 2,
-          yPercent: () => gsap.utils.random(-150, 150),
-          xPercent: () => gsap.utils.random(-150, 150),
-          opacity: 0,
-          stagger: {from: "random", amount: 3},
-          ease: "power3.out"
-        });
-        
-        gsap.to(chars4, {opacity: 0, duration: 1, delay: 8});
-      })
-      .to({}, {duration: 11});
-    };
+{ 
+  normal: "CADA VISITA AO SEU SITE É UMA OPORTUNIDADE DE NEGÓCIO",
+  destaque: "UMA LANDING PAGE ESTRATÉGICA TRANSFORMA VISITAS EM CLIENTES"
+},
+
+{ 
+  normal: "CLIENTES BUSCAM SOLUÇÕES NA INTERNET TODOS OS DIAS",
+  destaque: "UM SITE PROFISSIONAL GARANTE QUE ENCONTREM A SUA EMPRESA"
+},
+
+{ 
+  normal: "ATENDIMENTO RÁPIDO AUMENTA A CONFIANÇA DO CLIENTE",
+  destaque: "CHATBOTS AUTOMATIZAM RESPOSTAS E CAPTAM OPORTUNIDADES 24 HORAS"
+},
+
+{ 
+  normal: "EMPRESAS MODERNAS AUTOMATIZAM PROCESSOS PARA CRESCER MAIS",
+  destaque: "CHATBOTS TRANSFORMAM CONVERSAS EM OPORTUNIDADES DE NEGÓCIO"
+},
+
+{ 
+  normal: "UMA BOA PRESENÇA DIGITAL NÃO É LUXO",
+  destaque: "É UMA FERRAMENTA ESTRATÉGICA PARA CRESCER NO MERCADO"
+},
+
+{ 
+  normal: "QUEM CHEGA PRIMEIRO NA INTERNET CONQUISTA MAIS CLIENTES",
+  destaque: "INVESTIR EM UM SITE PROFISSIONAL É INVESTIR NO FUTURO DO NEGÓCIO"
+},
+
+{ 
+  normal: "A PRIMEIRA IMPRESSÃO DO CLIENTE HOJE ACONTECE ONLINE",
+  destaque: "UM SITE PROFISSIONAL TRANSMITE CONFIANÇA E CREDIBILIDADE"
+},
+
+{ 
+  normal: "ENQUANTO VOCÊ DORME A INTERNET CONTINUA GERANDO OPORTUNIDADES",
+  destaque: "UM SITE BEM ESTRUTURADO TRABALHA PARA SUA EMPRESA O TEMPO TODO"
+}
     
-    const timer = setTimeout(() => {
-      if (document.getElementById("splitText")) {
-        loopTextos();
-      }
-    }, 500);
+    ];
 
-    return () => clearTimeout(timer);
+    const container = document.getElementById("splitText");
+    if (!container) return;
+
+    // Cria um elemento p/ cada texto, empilhados via position:absolute
+    container.style.cssText = "position:relative; opacity:1;";
+    container.innerHTML = "";
+
+    const els = textos.map((t, i) => {
+      const el = document.createElement("div");
+      el.className = "split__text__item" + (i === 0 ? " ativo" : "");
+      el.innerHTML = `${t.normal} <span class="split__destaque">${t.destaque}</span>`;
+      container.appendChild(el);
+      return el;
+    });
+
+    let atual = 0;
+    const intervalo = setInterval(() => {
+      els[atual].classList.remove("ativo");
+      atual = (atual + 1) % els.length;
+      els[atual].classList.add("ativo");
+    }, 6000);
+
+    return () => clearInterval(intervalo);
   }, []);
 
   const ofertasRef = useRef(null);
